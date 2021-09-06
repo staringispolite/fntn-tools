@@ -12,12 +12,14 @@ Solidity utility contract for ✨doing things✨ with FNTN shards
 ```solidity
 contract myContract is FNTNConverter {
 
-  function foo(uint shardNumber) public {
+  function claimForShard(uint shardNumber) public {
     // Get tokenId in original FNTN contract
     uint originalTokenId = shardIdToTokenId(shardNumber);
     
     // Ensure the sender owns this shard
     require(fntnContract.ownerOf(originalTokenId) == msg.sender);
+    
+    // Do ~thing~ for shard owner
   }
 
 }
